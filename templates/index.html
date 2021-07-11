@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}The Car Evaluation App{% endblock %}
+{% block content %}
+<div class="login">
+	<h1>EVALUATE THE CAR</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="cost" placeholder="Cost" required="required" />
+        <input type="text" name="maintenance" placeholder="Maintenance" required="required" />
+		<input type="text" name="doors" placeholder="Doors" required="required" />
+        <input type="text" name="persons" placeholder="Persons" required="required" />
+        <input type="text" name="luggage_boot" placeholder="Luggage Boot" required="required" />
+		<input type="text" name="safety" placeholder="Safety" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+ <p>Go to <b>About</b> page for detailed instruction on using the system.</p>
+
+ {% endblock %}
